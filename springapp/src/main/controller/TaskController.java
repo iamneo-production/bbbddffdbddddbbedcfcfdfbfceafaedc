@@ -17,13 +17,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class TaskController {
     @Autowired
     private TaskService service;
-    
+
     @PostMapping("/saveTask")
     public Taskentity saveTask(@RequestBody Taskentity taskentity){
         Taskentity output = service.saveTask(taskentity);
         return output;
     }
-
 
     @GetMapping("/changeStatus")
     private Taskentity updatetaskStatus(@RequestParam("id") String id){
@@ -34,6 +33,7 @@ public class TaskController {
     private String deleteTask(@RequestParam("id") String id){
         return service.deleteTask(id);
     }
+    
     @GetMapping("/alltasks")
     private List<Taskentity> getallTasks(){
         return service.getallTasks();
@@ -42,6 +42,5 @@ public class TaskController {
     @GetMapping("/getTask")
     private Taskentity getTask(@RequestParam("id") String id){
         return service.gettaskbyid(id);
-        }
-
+    }
 }

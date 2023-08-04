@@ -28,16 +28,14 @@ public class TaskService {
         
     }
 
-
     public String deleteTask(String id){
         Optional<Taskentity> taskentity = repository.findByTaskId(id);
         if(taskentity.isPresent()){
             repository.deleteByTaskId(id);
-            return"Task Deleted Successfully";
+            return "Task Deleted Successfully";
         }
         return "User not Found";
     }
-
 
     public List<Taskentity> getallTasks(){
         return repository.findAll();
@@ -49,5 +47,5 @@ public class TaskService {
             return taskentity.get();
         }
         return null;
-    }
+    }
 }
